@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script>
+	var stockId = ["S001", "S002", "S003","S004","S005","S006","S007","S008","S009"];
+	var city = ["Bangalore", "Hyderabad", "Chennai","Delhi","Mumbai","Kochi"];
+    
+	var ind = 1;
+	function load() {
+        StockForm.stockId.value = stockId[0];
+    }
+	function show() {
+		
+            result += "StockId  " + StockForm.stockId.value + "<br/>";
+            result += "Item Name  " + StockForm.itemnm.value + "<br/>";
+            result += "Quantity Available  " + StockForm.quant.value + "<br/>";
+            result += "Item Description  " + StockForm.itemdes.value + "<br/>";
+            result += "City " + StockForm.city.value + "<br/>";
+            result += "Zip Code  " + StockForm.zipcode.value + "<br/>";
+            document.getElementById("result").innerHTML = result;
+            StockForm.stockId.value = stockId[ind];
+		ind++;
+	}
+</script>
+</head>
+<body bgColor="green" onload="load()" >
+    <form name="StockForm">
+        <table border="3" align="center">
+            <tr>
+                <th>Stock Id</th>
+                <td>
+					<input type="text" name="stockId" id="stockId" />
+                </td>
+            </tr>
+            <tr>
+                <th>Item Name</th>
+                <td>
+					<input type="text" name="itemnm" id="itemnm" />
+                </td>
+            </tr>
+            <tr>
+                <th>Quantity Available</th>
+                <td>
+					<input type="text" name="quant" id="quant"/>
+                </td>
+            </tr>
+            <tr>
+                <th>Item Description</th>
+                <td>
+					<input type="text" name="itemdes" id="itemdes"/>
+                </td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td>
+                    <select name="city" id="city">
+                        <option>City</option>
+                        <script>
+                            for (i = 0; i < city.length; i++) {
+                                document.write('<option value="' + city[i] + '">' + city[i] + '</option>');
+                            }
+                        </script>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Zip Code</th>
+                <td>
+					<input type="text" name="zipcode" id="zipcode"/>
+                </td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <input type="button" value="Submit" onclick="show()" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="button" value="Reset" />
+                </th>
+            </tr>
+
+        </table>
+    </form>
+    <span id="result"></span>
+</body>
+</html>
