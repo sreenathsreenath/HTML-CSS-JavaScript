@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script>
+	var stockId = ["S001", "S002", "S003","S004","S005","S006","S007","S008","S009"];
+	var city = ["Los Angeles", "Denver", "Washington DC","Illinois","Boston","Amsterdam"];
+	var ind = 1;
+	function load() {
+        StockForm.stockId.value = stockId[0];
+    }
+	function show() {
+		StockForm.stockId.value = stockId[ind];
+		ind++;
+	}
+</script>
+</head>
+<body onload="load()">
+    <form name="StockForm">
+        <table border="3" align="center">
+            <tr>
+                <th>Stock Id</th>
+                <td>
+					<input type="text" name="stockId" id="ID" />
+                </td>
+            </tr>
+            <tr>
+                <th>Item Name</th>
+                <td>
+					<input type="text" name="itemnm" />
+                </td>
+            </tr>
+            <tr>
+                <th>Quantity Available</th>
+                <td>
+					<input type="text" name="quant" />
+                </td>
+            </tr>
+            <tr>
+                <th>Item Description</th>
+                <td>
+					<input type="text" name="itemdes" />
+                </td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td>
+                    <select name="city">
+                        <option>City</option>
+                        <script>
+                            for (i = 0; i < city.length; i++) {
+                                document.write('<option value="' + city[i] + '">' + city[i] + '</option>');
+                            }
+                        </script>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Zip Code</th>
+                <td>
+					<input type="text" name="zipcode" />
+                </td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <input type="button" value="Submit" onclick="show()" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="button" value="Reset" />
+                </th>
+            </tr>
+
+        </table>
+    </form>
+</body>
+</html>
